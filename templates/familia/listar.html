@@ -1,7 +1,39 @@
+{% extends 'home.html' %}
 {% load static %}
-{% for i in lista %}
-<p>
-    {{i}} <a href="{% url 'familia_app:Delete' i.id %} ">Eliminar</a> <a href="{% url 'familia_app:Update' i.id %} ">Actualizar</a>
-</p>
 
-{% endfor %}
+
+{% block title %}
+Agregar Familia
+{% endblock title %}
+
+
+{% block content %}
+{% include 'includes/header.html' %}
+
+<table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Edad</th>
+        <th>DNI</th>
+        <th width="300">Editar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        
+        {% for i in lista %}
+        <td>{{i.nombre}}</td>
+        <td>{{i.apellido}}</td>
+        <td>{{i.edad}}</td>
+        <td>{{i.dni}}</td>
+        <td><a class="button success" href="{% url 'familia_app:Update' i.id %}">Actualizar</a><a class="button alert" href="{% url 'familia_app:Delete' i.id %}">Eliminar</a></td>
+        {% endfor %}
+
+      </tr>
+
+    </tbody>
+  </table>
+
+{% endblock content %}

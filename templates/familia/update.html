@@ -1,17 +1,55 @@
+{% extends 'home.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="" method="POST">{% csrf_token %}
-        <p>{{form.nombre}} </p>
-        <p>{{form.apellido}} </p>
-        <button type="submit">Actualizar</button>
-    </form>
-</body>
-</html>
+
+
+{% block title %}
+Agregar Familia
+{% endblock title %}
+
+
+{% block content %}
+{% include 'includes/header.html' %}
+<div class="grid-container">
+    <h3>Formulario familiar</h3>
+    <form method="post">{% csrf_token %}
+        <div class="grid-x grid-padding-x">
+            <div class="medium-6 cell">
+                <label>Nombre
+                    {{form.nombre}}
+                </label>
+            </div>
+            <div class="medium-6 cell">
+                <label>Apellido
+                    {{form.apellido}}
+                </label>
+            </div>
+            <div class="medium-6 cell">
+                <label>edad
+                    {{form.edad}}
+                </label>
+            </div>
+            <div class="medium-6 cell">
+                <label>dni
+                    {{form.dni}}
+                </label>
+            </div>
+            <div class="medium-6 cell">
+                <label>sexo
+                    {{form.sexo}}
+                </label>
+            </div>
+            <div class="medium-6 cell">
+                <label>parentezco
+                    {{form.parentezco}}
+                </label>
+            </div>
+            <div class="medium-6 cell">
+                <button class="submit success button">Save</button>
+            </div>
+
+        </div>
+</div>
+</form>
+
+
+{% endblock content %}

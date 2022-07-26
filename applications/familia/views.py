@@ -5,9 +5,11 @@ from .forms import FamiliaForm
 from .models import Familia
 # Create your views here.
 
+def inicio(request):
 
+    return render(request, 'index.html')
+    
 class FamiliaCreateView(CreateView):
-
     template_name = "familia/add_familia.html"
     model = Familia
     form_class=FamiliaForm

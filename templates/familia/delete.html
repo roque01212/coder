@@ -1,15 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="" method="POST">{% csrf_token %}
-        <label>Desea eliminar??</label>
-        <button type="submit">Confirmar</button>
-    </form>
-</body>
-</html>
+{% extends 'home.html' %}
+{% load static %}
+
+
+{% block title %}
+Agregar Familia
+{% endblock title %}
+
+
+{% block content %}
+{% include 'includes/header.html' %}
+<div class="grid-container">
+    <h3>Eliminar a {{object.nombre}}</h3>
+    <form method="post">{% csrf_token %}
+        <div class="grid-x grid-padding-x">
+            <div class="medium-6 cell">
+                <label><h4>Desea eliminar??</h4></label>
+                <button type="submit" class="alert button">Confirmar</button>
+            </div>
+
+</div>
+</form>
+
+
+{% endblock content %}

@@ -11,7 +11,7 @@ class Familia(models.Model):
     type_family_chises=(
     ('0', 'Padre'),
     ('1', 'Madre'),
-    ('2', 'Hijos'),
+    ('2', 'Hijo'),
     )
 
     nombre = models.CharField('Nombre: ', max_length=20)
