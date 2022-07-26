@@ -1,8 +1,7 @@
-
+{% load static %}
 {% for i in lista %}
-   <p>
-       {{i}}
-    </p>
-    
+<p>
+    {{i}} <a href="{% url 'familia_app:Delete' i.id %} ">Eliminar</a> <a href="{% url 'familia_app:Update' i.id %} ">Actualizar</a>
+</p>
+
 {% endfor %}
-    
