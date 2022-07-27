@@ -31,7 +31,8 @@ class FamiliaDeleteView(DeleteView):
 class FamiliaUpdateView(UpdateView):
     model = Familia
     template_name = "familia/update.html"
-    fields=('__all__')
+    # fields=('__all__')
+    form_class=FamiliaForm
     success_url =  reverse_lazy('familia_app:ListaFamiliares')
 
 
