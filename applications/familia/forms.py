@@ -1,4 +1,4 @@
-from socket import fromshare
+
 from django import forms
 
 from .models import Familia
@@ -11,9 +11,12 @@ class FamiliaForm(forms.ModelForm):
 
         model = Familia
         fields = ('__all__')
-        # widgets={
-        #     'parentezco':forms.CheckboxSelectMultiple(),
-        #     'parentezco':forms.CheckboxSelectMultiple()
-        # }
+        widgets={
+            'fecha_nac':forms.TextInput(
+                attrs={
+                    'placeholder':'27/07/2013'
+                }
+            )
+        }
        
 

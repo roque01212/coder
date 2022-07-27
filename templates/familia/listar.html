@@ -11,29 +11,32 @@ Agregar Familia
 {% include 'includes/header.html' %}
 
 <table>
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>Edad</th>
-        <th>DNI</th>
-        <th width="300">Editar</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        
-        {% for i in lista %}
-        <td>{{i.nombre}}</td>
-        <td>{{i.apellido}}</td>
-        <td>{{i.edad}}</td>
-        <td>{{i.dni}}</td>
-        <td><a class="button success" href="{% url 'familia_app:Update' i.id %}">Actualizar</a><a class="button alert" href="{% url 'familia_app:Delete' i.id %}">Eliminar</a></td>
-        {% endfor %}
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Edad</th>
+      <th>DNI</th>
+      <th>fecha_nac</th>
+      <th width="300">Editar</th>
+    </tr>
+  </thead>
+  {% for i in lista %}
+  <tbody>
+    <tr>
 
-      </tr>
+      <td>{{i.nombre}}</td>
+      <td>{{i.apellido}}</td>
+      <td>{{i.edad}}</td>
+      <td>{{i.dni}}</td>
+      <td>{{i.fecha_nac}}</td>
+      <td><a class="button success" href="{% url 'familia_app:Update' i.id %}">Actualizar</a><a class="button alert"
+          href="{% url 'familia_app:Delete' i.id %}">Eliminar</a></td>
 
-    </tbody>
-  </table>
+    </tr>
+    
+  </tbody>
+  {% endfor %}
+</table>
 
 {% endblock content %}

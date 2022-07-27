@@ -20,7 +20,7 @@ class Familia(models.Model):
     sexo = models.CharField('Sexo', max_length=1, choices=Sex_choises)
     parentezco = models.CharField('Parentezco Familiar:', max_length=1, choices=type_family_chises)
     dni = models.CharField('DNI:', max_length=10)
-#    fecha_nac = models.DateTimeField('Fecha Nacimiento: ', auto_now=False, auto_now_add=False)
+    fecha_nac = models.DateField('Fecha Nacimiento: ', blank=True, null=True)
 
     def __str__(self):
         return f"{self.nombre} {self.apellido}"
