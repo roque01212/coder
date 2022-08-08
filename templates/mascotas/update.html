@@ -3,14 +3,14 @@
 
 
 {% block title %}
-Actualizar Familia
+Actualizar
 {% endblock title %}
 
 
 {% block content %}
 {% include 'includes/header.html' %}
 <div class="grid-container">
-    <h3>Formulario familiar</h3>
+    <h3>Actualizar Mascota</h3>
     <form method="post">{% csrf_token %}
         <div class="grid-x grid-padding-x">
             <div class="medium-6 cell">
@@ -19,28 +19,13 @@ Actualizar Familia
                 </label>
             </div>
             <div class="medium-6 cell">
-                <label>Apellido
-                    {{form.apellido}}
-                </label>
-            </div>
-            <div class="medium-6 cell">
                 <label>Edad
                     {{form.edad}}
                 </label>
             </div>
             <div class="medium-6 cell">
-                <label>DNI
-                    {{form.dni}}
-                </label>
-            </div>
-            <div class="medium-6 cell">
                 <label>Sexo
                     {{form.sexo}}
-                </label>
-            </div>
-            <div class="medium-6 cell">
-                <label>Parentezco
-                    {{form.parentezco}}
                 </label>
             </div>
             <div class="medium-6 cell">

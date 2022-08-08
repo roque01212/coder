@@ -3,8 +3,7 @@
 
 
 {% block title %}
-
-lista Familia
+Lista Mascotas
 {% endblock title %}
 
 
@@ -15,10 +14,10 @@ lista Familia
   <thead>
     <tr>
       <th>Nombre</th>
-      <th>Apellido</th>
       <th>Edad</th>
-      <th>DNI</th>
       <th>fecha_nac</th>
+      <th>Raza</th>
+      <th>Sexo</th>
       <th width="300">Editar</th>
     </tr>
   </thead>
@@ -27,10 +26,10 @@ lista Familia
     <tr>
 
       <td>{{i.nombre}}</td>
-      <td>{{i.apellido}}</td>
       <td>{{i.edad}}</td>
-      <td>{{i.dni}}</td>
       <td>{{i.fecha_nac}}</td>
+      <td>{{i.raza}}</td>
+      <td>{{i.sexo}}</td>
       <td><a class="button success" href="{% url 'familia_app:Update' i.id %}">Actualizar</a><a class="button alert"
           href="{% url 'familia_app:Delete' i.id %}">Eliminar</a></td>
 

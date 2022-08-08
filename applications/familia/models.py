@@ -1,3 +1,4 @@
+from pyexpat import model
 from django.db import models
 
 # Create your models here.
@@ -27,3 +28,13 @@ class Familia(models.Model):
 
 
     
+class Mascotas(models.Model):
+    Sex_choises=(
+        ('0', 'Macho'),
+        ('1', 'Hembra'),
+    )
+    nombre = models.CharField('Nombre: ',max_length=20)
+    raza = models.CharField('Raza: ',max_length=20)
+    edad = models.PositiveIntegerField()
+    fecha_nac = models.DateField('Fecha Nacimiento: ', blank=True, null=True) 
+    sexo = models.CharField('Sexo', max_length=1, choices=Sex_choises)
