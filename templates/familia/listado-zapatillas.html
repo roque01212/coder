@@ -1,0 +1,39 @@
+{% extends 'home.html' %}
+{% load static %}
+
+
+{% block title %}
+Agregar Familia
+{% endblock title %}
+
+
+{% block content %}
+{% include 'includes/header.html' %}
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Precio</th>
+      <th>Fecha Venta</th>
+
+    </tr>
+  </thead>
+  {% for i in zapatillas %}
+  <tbody>
+    <tr>
+
+      <td>{{i.nombre}}</td>
+      <td>{{i.precio}}</td>
+      <td>{{i.fecha_v}}</td>
+     
+      <td><a class="button success" href="{% url 'familia_app:Update-zapas' i.id %}">Actualizar</a><a class="button alert"
+          href="{% url 'familia_app:Delete-zapas' i.id %}">Eliminar</a></td>
+
+    </tr>
+    
+  </tbody>
+  {% endfor %}
+</table>
+
+{% endblock content %}

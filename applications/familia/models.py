@@ -12,6 +12,7 @@ class Familia(models.Model):
     ('0', 'Padre'),
     ('1', 'Madre'),
     ('2', 'Hijo'),
+    ('3', 'Cuñao'),
     )
 
     nombre = models.CharField('Nombre: ', max_length=20)
@@ -25,5 +26,7 @@ class Familia(models.Model):
     def __str__(self):
         return f"{self.nombre} {self.apellido}"
 
-
-    
+class Zapas(models.Model):
+    nombre = models.CharField('Nombre', max_length=50)
+    precio = models.IntegerField()
+    fecha_v = models.DateField('Fecha venta', auto_now=False, auto_now_add=False)

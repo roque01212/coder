@@ -1,0 +1,24 @@
+{% extends 'home.html' %}
+{% load static %}
+
+
+{% block title %}
+Agregar Familia
+{% endblock title %}
+
+
+{% block content %}
+{% include 'includes/header.html' %}
+<div class="grid-container">
+    <h3>Crismar</h3>
+    <form method="post">{% csrf_token %}
+        <div class="grid-x grid-padding-x">
+            {{form}}
+        <div class="medium-6 cell">
+            <button class="submit success button">Save</button>
+        </div>
+    </form>
+</div>
+
+
+{% endblock content %}
