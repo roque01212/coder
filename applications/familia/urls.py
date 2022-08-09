@@ -9,6 +9,9 @@ urlpatterns = [
     path('lista/', views.FamiliaListView.as_view(), name='ListaFamiliares'),
     path('delete/<pk>/', views.FamiliaDeleteView.as_view(), name='Delete'),
     path('update/<pk>/', views.FamiliaUpdateView.as_view(), name='Update'),
+    path('buscar/', views.buscar, name='Buscar'),
+    path("busquedanombre/", views.buscar_familia, name="Buscarnombre"),
+    
 
 
     path('zapas/', views.ZapasreateView.as_view(), name='Zapas'),

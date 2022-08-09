@@ -10,10 +10,7 @@ lista Familia
 
 {% block content %}
 {% include 'includes/header.html' %}
-<form action="/buscar/", method="GET">
-  <p>apellido: <input type="text", name="nombre"></p>
-  <input type="submit", value="Buscar">
-</form>
+
 
 <table>
   <thead>
@@ -26,7 +23,7 @@ lista Familia
       <th width="300">Editar</th>
     </tr>
   </thead>
-  {% for i in lista %}
+  {% for i in resultado %}
   <tbody>
     <tr>
 
