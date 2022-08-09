@@ -16,7 +16,8 @@ urlpatterns = [
 
     path('zapas/', views.ZapasreateView.as_view(), name='Zapas'),
     path('listado-zapa/', views.mostrar_zapatillas, name='Listado-zapas'),
-    path('update-zapas/<pk>/', views.ZapasUpdateView.as_view(), name='Update-zapas'),
+    #path('update-zapas/<pk>/', views.ZapasUpdateView.as_view(), name='Update-zapas'),
+    path('update-zapas/<id>/', views.actualizar, name='Update-zapas'),
     path('delete-zapas/<id>/', views.eliminar_zapas, name='Delete-zapas'),
 
     path('listar/',views.MascotasListView.as_view(),name='ListaMascotas'),

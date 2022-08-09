@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView
 from django.urls import reverse_lazy
 
@@ -70,12 +70,32 @@ def mostrar_zapatillas(request):
     return render(request, 'familia/listado-zapatillas.html', {'zapatillas':zapatillas})
 
 
-class ZapasUpdateView(UpdateView):
-    model = Zapas
-    template_name = "familia/update-zapas.html"
-    form_class=ZapasForm
-    success_url =  reverse_lazy('familia_app:Listado-zapas')
+# class ZapasUpdateView(UpdateView):
+#     model = Zapas
+#     template_name = "familia/update-zapas.html"
+#     form_class=ZapasForm
+#     success_url =  reverse_lazy('familia_app:Listado-zapas')
 
+
+def actualizar(request, id):
+    zapatillas=Zapas.objects.get(id=id)
+
+    if request.method=="POST":
+        formulario=ZapasForm(request.POST)
+        if formulario.is_valid():
+            informacion=formulario.cleaned_data
+            zapatillas.nombre=informacion['nombre']
+            zapatillas.precio=informacion['precio']
+            zapatillas.fecha_v=informacion['fecha_v']
+            
+            
+            zapatillas.save()
+            return redirect("familia_app:Listado-zapas")
+
+    else:
+        formulario = ZapasForm(initial={"nombre":zapatillas.nombre, "precio":zapatillas.precio, "fecha_v":zapatillas.fecha_v})
+
+    return render(request, "familia/update-zapas.html",{"form":formulario})
 
 def eliminar_zapas(request, id):
     zapas=Zapas.objects.get(id=id)
