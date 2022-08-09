@@ -20,6 +20,17 @@ class FamiliaCreateView(CreateView):
     form_class=FamiliaForm
     success_url=reverse_lazy('familia_app:ListaFamiliares')
 
+def buscar_familia(request):
+    return render(request, "familia/listar.html")
+
+def buscar(request): 
+
+    if request.GET['nombre']:
+        nombre=request.GET['nombre']
+        resultado=Familia.objects.filter(nombre__icontains=nombre)
+        return render(request, "familia/buscar.html", {"resultado":resultado} )
+    else:
+        return render(request, "familia/buscar.html")
  
 class FamiliaListView(ListView):
     template_name = "familia/listar.html"
