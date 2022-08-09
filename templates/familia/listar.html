@@ -10,10 +10,21 @@ lista Familia
 
 {% block content %}
 {% include 'includes/header.html' %}
-<form action="/buscar/", method="GET">
-  <p>apellido: <input type="text", name="nombre"></p>
-  <input type="submit", value="Buscar">
-</form>
+<div class="grid-container">
+  <form action="/buscar/" , method="GET">
+    <div class="grid-x grid-padding-x">
+      <div class="medium-6 cell">
+        <label>Nombre: 
+          <input type="text" , name="nombre">
+      </label>
+       
+      </div>
+      <div class=" cell">
+        <button class="submit success button">Save</button>
+      </div>
+    </div>
+  </form>
+</div>
 
 <table>
   <thead>
@@ -39,7 +50,7 @@ lista Familia
           href="{% url 'familia_app:Delete' i.id %}">Eliminar</a></td>
 
     </tr>
-    
+
   </tbody>
   {% endfor %}
 </table>

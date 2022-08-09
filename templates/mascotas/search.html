@@ -12,12 +12,6 @@ Lista Mascotas
 
 <table>
   <thead>
-    <nav class="navbar navbar-light bg-light">
-      <form action="/search/", method="GET">
-        <p>nombre: <input type="text", name="nombre"></p>
-        <input type="submit", value="Buscar">
-      </form>
-    </nav>
     <tr>
       <th>Nombre</th>
       <th>Edad</th>
@@ -27,7 +21,7 @@ Lista Mascotas
       <th width="300">Editar</th>
     </tr>
   </thead>
-  {% for i in lista %}
+  {% for i in resultado %}
   <tbody>
     <tr>
 

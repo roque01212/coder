@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path,include
 from . import views
 
 app_name='familia_app'
@@ -23,6 +23,7 @@ urlpatterns = [
     path('listar/',views.MascotasListView.as_view(),name='ListaMascotas'),
     path('crear/', views.MascotaCreateView.as_view(), name='CrearMascota'),
     path('delete-mascota/<pk>/', views.MascotaDeleteView.as_view(), name='Delete-mascota'),
-    path('update-mascota/<pk>/', views.MascotaUpdateView.as_view(), name='Update-mascota')
+    path('update-mascota/<pk>/', views.MascotaUpdateView.as_view(), name='Update-mascota'),
+    path('search/',views.searchMascot, name='search'),
 
 ]
