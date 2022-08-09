@@ -4,13 +4,18 @@
         <li class="menu-text">Pagina Familiar</li>
         <li><a href="{% url 'familia_app:Index' %}">Inicio</a></li>
         <li><a href="{% url 'familia_app:ListaFamiliares' %}">Listar Familiares</a></li>
+
         <li><a href="{% url 'familia_app:Zapas' %}">zapatillas</a></li>
         <li><a href="{% url 'familia_app:Listado-zapas' %}">zapatillas</a></li>
+
+        <li><a href="{% url 'familia_app:ListaMascotas' %}">Lista Mascotas</a></li>
+
       </ul>
     </div>
     <div class="top-bar-right">
       <ul class="menu">
         <li><a class="button" href="{% url 'familia_app:Formulario' %}"> Registrar nuevo</a></li>
+        <li><a class="button" style="background-color: green;" href="{% url 'familia_app:CrearMascota' %}"> Registrar Mascota</a></li>
       </ul>
     </div>
   </div>

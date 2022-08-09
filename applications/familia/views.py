@@ -1,8 +1,13 @@
 from django.shortcuts import render
 from django.views.generic import CreateView, ListView, DeleteView, UpdateView
 from django.urls import reverse_lazy
+
 from .forms import FamiliaForm, ZapasForm
 from .models import Familia, Zapas
+
+from .forms import FamiliaForm, MascotasForm
+from .models import Familia, Mascotas
+
 # Create your views here.
 
 def inicio(request):
@@ -35,6 +40,12 @@ class FamiliaUpdateView(UpdateView):
     form_class=FamiliaForm
     success_url =  reverse_lazy('familia_app:ListaFamiliares')
 
+######### Mascotas #########
+class MascotasListView(ListView):
+    model= Mascotas
+    template_name = "mascotas/listar.html"
+    context_object_name="lista"
+
 
 
 class ZapasreateView(CreateView):
@@ -60,3 +71,20 @@ def eliminar_zapas(request, id):
     zapas.delete()
 
     return render(request, 'index.html')
+
+class MascotaCreateView(CreateView):
+    template_name = "mascotas/add_mascota.html"
+    model = Mascotas
+    form_class=MascotasForm
+    success_url=reverse_lazy('familia_app:ListaMascotas')
+
+class MascotaDeleteView(DeleteView):
+    template_name = "mascotas/delete.html"
+    model = Mascotas
+    success_url=reverse_lazy('familia_app:ListaMascotas')
+
+class MascotaUpdateView(UpdateView):
+    template_name = "mascotas/update.html"
+    model = Mascotas
+    form_class=MascotasForm
+    success_url=reverse_lazy('familia_app:ListaMascotas')
