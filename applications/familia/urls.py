@@ -19,6 +19,8 @@ urlpatterns = [
     #path('update-zapas/<pk>/', views.ZapasUpdateView.as_view(), name='Update-zapas'),
     path('update-zapas/<id>/', views.actualizar, name='Update-zapas'),
     path('delete-zapas/<id>/', views.eliminar_zapas, name='Delete-zapas'),
+    path('buscar-zapas/', views.buscar2, name='Buscar-zapas'),
+    path("busquedazapas/", views.buscar_zapa, name="Buscarzapas"),
 
     path('listar/',views.MascotasListView.as_view(),name='ListaMascotas'),
     path('crear/', views.MascotaCreateView.as_view(), name='CrearMascota'),

@@ -65,16 +65,23 @@ class ZapasreateView(CreateView):
     form_class=ZapasForm
     success_url=reverse_lazy('familia_app:Listado-zapas')
 
+
+
 def mostrar_zapatillas(request):
     zapatillas=Zapas.objects.all()
     return render(request, 'familia/listado-zapatillas.html', {'zapatillas':zapatillas})
 
+def buscar_zapa(request):
+    return render(request, "familia/listado-zapatillas.html")
 
-# class ZapasUpdateView(UpdateView):
-#     model = Zapas
-#     template_name = "familia/update-zapas.html"
-#     form_class=ZapasForm
-#     success_url =  reverse_lazy('familia_app:Listado-zapas')
+def buscar2(request): 
+
+    if request.GET['nombre']:
+        nombre=request.GET['nombre']
+        resultado=Zapas.objects.filter(nombre__icontains=nombre)
+        return render(request, "familia/buscar-zapas.html", {"resultado":resultado} )
+    else:
+        return render(request, "familia/buscar-zapas.html")
 
 
 def actualizar(request, id):

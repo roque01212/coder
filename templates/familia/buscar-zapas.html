@@ -10,21 +10,6 @@ Listado Zapatillas
 {% block content %}
 {% include 'includes/header.html' %}
 
-<div class="grid-container">
-  <form action="/buscar-zapas/" , method="GET">
-    <div class="grid-x grid-padding-x">
-      <div class="medium-6 cell">
-        <label>Marca: 
-          <input type="text" , name="nombre">
-      </label>
-       
-      </div>
-      <div class=" cell">
-        <button class="submit success button">Save</button>
-      </div>
-    </div>
-  </form>
-</div>
 
 <table>
   <thead>
@@ -35,7 +20,7 @@ Listado Zapatillas
 
     </tr>
   </thead>
-  {% for i in zapatillas %}
+  {% for i in resultado %}
   <tbody>
     <tr>
 
