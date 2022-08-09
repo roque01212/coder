@@ -23,6 +23,6 @@ urlpatterns = [
     path('crear/', views.MascotaCreateView.as_view(), name='CrearMascota'),
     path('delete-mascota/<pk>/', views.MascotaDeleteView.as_view(), name='Delete-mascota'),
     path('update-mascota/<pk>/', views.MascotaUpdateView.as_view(), name='Update-mascota'),
-    path('search/',views.search,name='Search'),
+    path('search/',views.searchMascot, name='search'),
 
 ]

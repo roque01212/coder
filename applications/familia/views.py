@@ -100,9 +100,11 @@ class MascotaUpdateView(UpdateView):
     form_class=MascotasForm
     success_url=reverse_lazy('familia_app:ListaMascotas')
 
-def search(request):
+def searchMascot(request): 
 
-    search = request.GET['search']
-    mascota = Mascotas.objects.filter(Nombre__icontains=search)
-    context = {'mascota':mascota}
-    return render (request, 'mascotas/search.html',context=context)
+    if request.GET['nombre']:
+        nombre=request.GET['nombre']
+        resultado=Mascotas.objects.filter(nombre__icontains=nombre)
+        return render(request, "mascotas/search.html", {"resultado":resultado} )
+    else:
+        return render(request, "mascotas/search.html")

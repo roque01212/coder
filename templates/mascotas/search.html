@@ -1,0 +1,42 @@
+{% extends 'home.html' %}
+{% load static %}
+
+
+{% block title %}
+Lista Mascotas
+{% endblock title %}
+
+
+{% block content %}
+{% include 'includes/header.html' %}
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Edad</th>
+      <th>fecha_nac</th>
+      <th>Raza</th>
+      <th>Sexo</th>
+      <th width="300">Editar</th>
+    </tr>
+  </thead>
+  {% for i in resultado %}
+  <tbody>
+    <tr>
+
+      <td>{{i.nombre}}</td>
+      <td>{{i.edad}}</td>
+      <td>{{i.fecha_nac}}</td>
+      <td>{{i.raza}}</td>
+      <td>{{i.sexo}}</td>
+      <td><a class="button success" href="{% url 'familia_app:Update-mascota' i.id %}">Actualizar</a><a class="button alert"
+          href="{% url 'familia_app:Delete-mascota' i.id %}">Eliminar</a></td>
+
+    </tr>
+    
+  </tbody>
+  {% endfor %}
+</table>
+
+{% endblock content %}
